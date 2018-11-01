@@ -45,3 +45,9 @@ def preprocess_five_class (input_path):
 
 train_x, train_y = preprocess_five_class(train_file) # preprocess_categorical_five_class(train_file)
 test_x, test_y =  preprocess_five_class(test_file) # preprocess_categorical_five_class(test_file)
+
+clf = neighbors.KNeighborsClassifier()
+clf.fit(train_x, train_y)
+
+accuracy = clf.score(test_x, test_y)
+print(accuracy * 100)
