@@ -1,8 +1,8 @@
 import numpy as np
-from sklearn import preprocessing, neighbors, model_selection
 import pandas as pd
-# convert categorical features to numerical vectors
-# generate 5-class labels
+from matplotlib import pyplot as plt
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
 
 train_file = "../../datasets/kddcup.data_10_percent_corrected" # training_small
 test_file = "../../datasets/corrected" # testing_small
@@ -38,16 +38,29 @@ def preprocess_five_class (input_path):
   for i in categorical_columns:
       df[i] = df[i].astype('int64')
 
+  df_x = data.iloc[:,1:]
+  df_y = data.iloc[:,0]
+  
   y = df.pop('label')
   x = df
   
   return x, y
 
-train_x, train_y = preprocess_five_class(train_file) # preprocess_categorical_five_class(train_file)
-test_x, test_y =  preprocess_five_class(test_file) # preprocess_categorical_five_class(test_file)
+x_train, y_train = preprocess_five_class(train_file) # preprocess_categorical_five_class(train_file)
+x_test, y_test =  preprocess_five_class(test_file) # preprocess_categorical_five_class(test_file)
 
-clf = neighbors.KNeighborsClassifier()
-clf.fit(train_x, train_y)
+x_train, x_test, y_train, y_test = train_test_split(df_x, df_y, test_size=0.2, random_state=4)
 
-accuracy = clf.score(test_x, test_y)
-print(accuracy * 100)
+rf = RandomForestClassifier(n_estimators=100)
+rf.fit(x_train, y_train)
+pred = rf.predict(x_test)
+pred
+
+s = y_test.values
+count = 0
+
+for i in range(len(pred)):
+    if pred[i]==s[i]:
+        count=count+1
+
+len(pred)
