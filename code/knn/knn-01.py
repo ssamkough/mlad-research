@@ -1,6 +1,5 @@
 import numpy as np
-from sklearn import preprocessing, neighbors, model_selection
-from sklearn.model_selection import train_test_split
+from sklearn import preprocessing, neighbors
 import pandas as pd
 # convert categorical features to numerical vectors
 # generate 5-class labels
@@ -46,8 +45,6 @@ def preprocess_five_class (input_path):
 
 X_train, y_train = preprocess_five_class(train_file) # preprocess_categorical_five_class(train_file)
 X_test, y_test =  preprocess_five_class(test_file) # preprocess_categorical_five_class(test_file)
-
-X_train, X_test, y_train, y_test = train_test_split((param01), (param02), test_size=0.1)
 
 clf = neighbors.KNeighborsClassifier()
 clf.fit(X_train, y_train)
