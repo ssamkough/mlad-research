@@ -28,6 +28,11 @@ def preprocess_five_class (input_path):
     s = int(s)
     skip = sorted(random.sample(range(1, n+1), n-s)) # the 0-indexed header will not be included in the skip list
     df = pd.read_csv(input_path, header = None, names = features, skiprows = skip)
+  elif yesorno == "1000":
+    n = sum(1 for line in open(input_path)) - 1
+    s = 1000
+    skip = sorted(random.sample(range(1, n+1), n-s))
+    df = pd.read_csv(input_path, header = None, names = features, skiprows = skip)
   else:
     df = pd.read_csv(input_path, header = None, names = features)
     
@@ -53,11 +58,11 @@ def preprocess_five_class (input_path):
 train_file = "../../datasets/kddcup.data_10_percent_corrected" # training_small
 test_file = "../../datasets/corrected" # testing_small
 
-X_train, y_train = preprocess_five_class(train_file) # preprocess_categorical_five_class(train_file)
-X_test, y_test =  preprocess_five_class(test_file) # preprocess_categorical_five_class(test_file)
+x_train, y_train = preprocess_five_class(train_file) # preprocess_categorical_five_class(train_file)
+x_test, y_test =  preprocess_five_class(test_file) # preprocess_categorical_five_class(test_file)
 
 clf = neighbors.KNeighborsClassifier()
-clf.fit(X_train, y_train)
+clf.fit(x_train, y_train)
 
-accuracy = clf.score(X_test, y_test)
-print(accuracy * 100)
+accuracy = clf.score(x_test, y_test)
+print("Accuracy:", accuracy * 100)
