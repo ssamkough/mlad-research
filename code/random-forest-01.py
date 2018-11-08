@@ -63,8 +63,6 @@ test_file = "../../datasets/corrected" # testing_small
 x_train, y_train = preprocess_five_class(train_file) # preprocess_categorical_five_class(train_file)
 x_test, y_test =  preprocess_five_class(test_file) # preprocess_categorical_five_class(test_file)
 
-# x_train, x_test, y_train, y_test = train_test_split(df_x, df_y, test_size=0.2, random_state=4)
-
 rf = RandomForestClassifier(n_estimators=100)
 rf.fit(x_train, y_train)
 pred = rf.predict(x_test)
