@@ -3,6 +3,7 @@ from sklearn import preprocessing, neighbors
 import pandas as pd
 import random
 
+# test
 # convert categorical features to numerical vectors
 # generate 5-class labels
 def preprocess_five_class (input_path):
