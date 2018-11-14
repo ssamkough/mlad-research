@@ -8,3 +8,5 @@ I am partaking in research with my professor Dr. Boxiang Dong at Montclair State
 Stack Overflow
 * https://stackoverflow.com/questions/22258491/read-a-small-random-sample-from-a-big-csv-file-into-a-python-data-frame?lq=1
 * https://stackoverflow.com/questions/12190874/pandas-sampling-a-dataframe
+* https://stackoverflow.com/questions/45579525/returning-a-dataframe-in-python-function
+* https://stackoverflow.com/questions/45579525/returning-a-dataframe-in-python-function
