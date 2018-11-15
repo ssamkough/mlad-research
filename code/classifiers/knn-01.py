@@ -71,3 +71,8 @@ clf.fit(x_train, y_train)
 
 accuracy = clf.score(x_test, y_test)
 print("Accuracy:", accuracy * 100)
+
+# features = ['back', 'neptune', 'smurf', 'teardrop', 'land', 'pod', 'apache2', 'mailbomb', 'processtable', 'udpstorm', 'satan', 'portsweep', 'ipsweep', 'nmap', 'mscan', 'saint', 'warezmaster', 'warezclient', 'ftp_write', 'guess_passwd', 'imap', 'multihop', 'phf', 'spy', 'sendmail', 'named', 'snmpgetattack', 'snmpguess', 'xlock', 'xsnoop', 'worm', 'rootkit', 'buffer_overflow', 'loadmodule', 'perl', 'httptunnel', 'ps', 'sqlattack', 'xterm']
+# from sklearn.metrics import recall_score
+# recall = recall_score(features, y_test, average='macro')
+# print("Recall:", recall)
