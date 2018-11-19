@@ -64,7 +64,7 @@ train_file = "../../datasets/kddcup.data_10_percent_corrected" # training_small
 test_file = "../../datasets/corrected" # testing_small
 
 x_train, y_train = preprocess_five_class(train_file) # preprocess_categorical_five_class(train_file)
-x_test, y_test =  preprocess_five_class(test_file) # preprocess_categorical_five_class(test_file)
+x_test, y_test, z =  preprocess_five_class(test_file) # preprocess_categorical_five_class(test_file)
 
 clf = neighbors.KNeighborsClassifier()
 clf.fit(x_train, y_train)
@@ -72,7 +72,5 @@ clf.fit(x_train, y_train)
 accuracy = clf.score(x_test, y_test)
 print("Accuracy:", accuracy * 100)
 
-# features = ['back', 'neptune', 'smurf', 'teardrop', 'land', 'pod', 'apache2', 'mailbomb', 'processtable', 'udpstorm', 'satan', 'portsweep', 'ipsweep', 'nmap', 'mscan', 'saint', 'warezmaster', 'warezclient', 'ftp_write', 'guess_passwd', 'imap', 'multihop', 'phf', 'spy', 'sendmail', 'named', 'snmpgetattack', 'snmpguess', 'xlock', 'xsnoop', 'worm', 'rootkit', 'buffer_overflow', 'loadmodule', 'perl', 'httptunnel', 'ps', 'sqlattack', 'xterm']
-# from sklearn.metrics import recall_score
-# recall = recall_score(features, y_test, average='macro')
-# print("Recall:", recall)
+recall = recall_score(z, y_test)
+print("Recall:", recall)
