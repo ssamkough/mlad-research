@@ -60,11 +60,11 @@ def preprocess_five_class (input_path):
   
   return x, y
 
-train_file = "../../datasets/kddcup.data_10_percent_corrected" # training_small
-test_file = "../../datasets/corrected" # testing_small
+train_file = "../../datasets/kddcup.data_10_percent_corrected"
+test_file = "../../datasets/corrected"
 
-x_train, y_train = preprocess_five_class(train_file) # preprocess_categorical_five_class(train_file)
-x_test, y_test =  preprocess_five_class(test_file) # preprocess_categorical_five_class(test_file)
+x_train, y_train = preprocess_five_class(train_file)
+x_test, y_test =  preprocess_five_class(test_file)
 
 clf = neighbors.KNeighborsClassifier()
 clf.fit(x_train, y_train)
@@ -72,10 +72,12 @@ clf.fit(x_train, y_train)
 accuracy = clf.score(x_test, y_test) * 100
 print("Accuracy: " + str(accuracy))
 
+# https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html
 from sklearn.metrics import recall_score
 recall = recall_score(x_test, y_test)
 print("Recall: " + str(recall))
 
+# https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html
 from sklearn.metrics import precision_score
 precision = precision_score(x_test, y_test)
 print("Precision: " + str(precision))
