@@ -64,13 +64,18 @@ train_file = "../../datasets/kddcup.data_10_percent_corrected" # training_small
 test_file = "../../datasets/corrected" # testing_small
 
 x_train, y_train = preprocess_five_class(train_file) # preprocess_categorical_five_class(train_file)
-x_test, y_test, z =  preprocess_five_class(test_file) # preprocess_categorical_five_class(test_file)
+x_test, y_test =  preprocess_five_class(test_file) # preprocess_categorical_five_class(test_file)
 
 clf = neighbors.KNeighborsClassifier()
 clf.fit(x_train, y_train)
 
-accuracy = clf.score(x_test, y_test)
-print("Accuracy:", accuracy * 100)
+accuracy = clf.score(x_test, y_test) * 100
+print("Accuracy: " + str(accuracy))
 
-recall = recall_score(z, y_test)
-print("Recall:", recall)
+from sklearn.metrics import recall_score
+recall = recall_score(x_test, y_test)
+print("Recall: " + str(recall))
+
+from sklearn.metrics import precision_score
+precision = precision_score(x_test, y_test)
+print("Precision: " + str(precision))
