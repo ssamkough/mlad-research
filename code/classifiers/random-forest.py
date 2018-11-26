@@ -4,7 +4,9 @@ from matplotlib import pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 import random
+import warnings
 
+warnings.filterwarnings('ignore')
 # grabbing the sample size
 def grab_sample_size (input_path, features):
   yesorno = input("\nWould you like to grab a sample of the data from " + input_path + "?\n")
@@ -70,16 +72,32 @@ x_test, y_test =  preprocess_five_class(test_file) # preprocess_categorical_five
 
 rf = RandomForestClassifier(n_estimators=100)
 rf.fit(x_train, y_train)
-pred = rf.predict(x_test)
-print("Prediction:", pred)
+y_pred = rf.predict(x_test)
+print("\nPrediction:" + str(y_pred))
 
 s = y_test.values
 count = 0
 
-for i in range(len(pred)):
-    if pred[i]==s[i]:
-        count=count+1
+for i in range(len(y_pred)):
+    if y_pred[i] == s[i]:
+        count = count + 1
 
-accuracy = rf.score(x_test, y_test)
-print("Length:", len(pred))
-print("Accuracy:", accuracy * 100)
+accuracy = rf.score(x_test, y_test) * 100
+print("Length:", str(len(y_pred)))
+
+print("\nMetrics")
+print("---------")
+print("Accuracy: " + str(accuracy))
+
+# https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html
+from sklearn.metrics import recall_score
+recall = recall_score(y_test, y_pred, average=None)
+recall_s = recall[0] * 100
+print("Recall: " + str(recall_s))
+
+# https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html
+from sklearn.metrics import precision_score
+precision = precision_score(y_test, y_pred, average=None)
+precision_s = precision[0] * 100
+print("Precision: " + str(precision_s))
+

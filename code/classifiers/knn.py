@@ -2,6 +2,9 @@ import numpy as np
 from sklearn import preprocessing, neighbors
 import pandas as pd
 import random
+import warnings
+
+warnings.filterwarnings('ignore')
 
 # grabbing the sample size
 def grab_sample_size (input_path, features):
@@ -70,15 +73,20 @@ clf = neighbors.KNeighborsClassifier()
 clf.fit(x_train, y_train)
 y_pred = clf.predict(x_test)
 
+print("\nMetrics")
+print("---------")
+
 accuracy = clf.score(x_test, y_test) * 100
 print("Accuracy: " + str(accuracy))
 
 # https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html
 from sklearn.metrics import recall_score
-recall = recall_score(y_test, y_pred)
-print("Recall: " + str(recall))
+recall = recall_score(y_test, y_pred, average=None)
+recall_s = recall[0] * 100
+print("Recall: " + str(recall_s))
 
 # https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html
 from sklearn.metrics import precision_score
-precision = precision_score(y_test, y_pred)
-print("Precision: " + str(precision))
+precision = precision_score(y_test, y_pred, average=None)
+precision_s = precision[0] * 100
+print("Precision: " + str(precision_s))
