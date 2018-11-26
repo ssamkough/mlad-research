@@ -68,16 +68,17 @@ x_test, y_test =  preprocess_five_class(test_file)
 
 clf = neighbors.KNeighborsClassifier()
 clf.fit(x_train, y_train)
+y_pred = clf.predict(x_test)
 
 accuracy = clf.score(x_test, y_test) * 100
 print("Accuracy: " + str(accuracy))
 
 # https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html
 from sklearn.metrics import recall_score
-recall = recall_score(x_test, y_test)
+recall = recall_score(y_test, y_pred)
 print("Recall: " + str(recall))
 
 # https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html
 from sklearn.metrics import precision_score
-precision = precision_score(x_test, y_test)
+precision = precision_score(y_test, y_pred)
 print("Precision: " + str(precision))
