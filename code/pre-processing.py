@@ -2,6 +2,9 @@ import numpy as np
 from sklearn import preprocessing, neighbors
 import pandas as pd
 import random
+import warnings
+
+warnings.filterwarnings('ignore')
 
 # grabbing the sample size
 def grab_sample_size (input_path, features):
