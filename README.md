@@ -6,6 +6,8 @@ I am partaking in research with my professor Dr. Boxiang Dong at Montclair State
 
 ## Resources
 Stack Overflow
+* https://stackoverflow.com/questions/43162506/undefinedmetricwarning-f-score-is-ill-defined-and-being-set-to-0-0-in-labels-wi
+* https://stackoverflow.com/questions/45890328/sklearn-metrics-for-multiclass-classification
 * https://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html
 * https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html
 * https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html
