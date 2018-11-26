@@ -82,11 +82,13 @@ print("Accuracy: " + str(accuracy))
 # https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html
 from sklearn.metrics import recall_score
 recall = recall_score(y_test, y_pred, average=None)
-recall_s = recall[0] * 100
-print("Recall: " + str(recall_s))
+#for i in recall:
+#  recall[i] * 100
+print("Recall: " + str(recall))
 
 # https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html
 from sklearn.metrics import precision_score
 precision = precision_score(y_test, y_pred, average=None)
-precision_s = precision[0] * 100
-print("Precision: " + str(precision_s))
+#for i in precision:
+#  precision[i] * 100
+print("Precision: " + str(precision))
