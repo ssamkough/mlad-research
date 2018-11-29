@@ -2,7 +2,13 @@
 I am partaking in research with my professor Dr. Boxiang Dong at Montclair State University in using deep learning techniques for anomaly detection. This project is to help with that research, specifically in implementing Machine Learning classifiers and more.
 
 ## Requirements
+### Software
 * Python 3.5 (Python 3.7 doesn't work correctly, not too sure if the lower versions do)
+
+### Datasets
+* [KDD99 Cup 10% Dataset (kddcup.data_10_percent.gz)](http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html)
+* [KDD99 Cup Corrected Dataset (corrected.gz)](http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html)
+* [CICIDS 2017 Dataset](https://www.unb.ca/cic/datasets/ids-2017.html)
 
 ## Resources
 Stack Overflow
