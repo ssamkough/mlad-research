@@ -69,7 +69,8 @@ def preprocess_five_class (input_path):
       running = False
     else:
       print("Please either input '2' for 2-classification or '5' for 5-classification..")
-      
+
+  # changing categorical values to numerical values   
   categorical_columns = ['protocol_type', 'service', 'flag', 'label']
   df[categorical_columns] = df[categorical_columns].astype('category').apply(lambda x: x.cat.codes)
   for i in categorical_columns:
@@ -88,7 +89,7 @@ x_test, y_test =  preprocess_five_class(test_file) # preprocess_categorical_five
 
 rf = RandomForestClassifier(n_estimators=100)
 rf.fit(x_train, y_train)
-y_pred = rf.predict(x_test)
+y_pred = rf.predict(x_test) # takes the features of a record and predicts the label of a record
 print("\nPrediction: " + str(y_pred))
 
 s = y_test.values
