@@ -28,14 +28,26 @@ def grab_sample_size (input_path, features):
 # convert categorical features to numerical vectors
 # generate 2-class or 5-class labels
 def preprocess_five_class (input_path):
-  features = ['duration', 'protocol_type', 'service', 'flag', 'src_bytes', 'dst_bytes', 'land',
-          'wrong_fragment', 'urgent', 'hot', 'num_failed_logins', 'logged_in', 'num_compromised',
-          'root_shell', 'su_attempted', 'num_root', 'num_file_creations', 'num_shells',
-          'num_access_files', 'num_outbound_cmds', 'is_host_login', 'is_guest_login', 'count',
-          'srv_count', 'serror_rate', 'srv_serror_rate', 'rerror_rate', 'srv_rerror_rate',
-          'same_srv_rate', 'diff_srv_rate', 'srv_diff_host_rate', 'dst_host_count', 'dst_host_srv_count',
-          'dst_host_same_srv_rate', 'dst_host_diff_srv_rate', 'dst_host_same_src_port_rate', 'dst_host_srv_diff_host_rate',
-          'dst_host_serror_rate', 'dst_host_srv_serror_rate', 'dst_host_rerror_rate', 'dst_host_srv_rerror_rate', 'label']
+  # 85 features
+  features = ['flow_id', 'source_ip', 'source_port', 'dest_ip', 'dest_port',
+  'protocol', 'timestamp', 'flow_duration', 'total_fwd_packets', 'total_bwd_packets',
+  'total_length_fwd_packets', 'total_length_bwd_packets', 'fwd_packet_length_max',
+  'fwd_packet_length_min', 'fwd_packet_length_mean', 'fwd_packet_length_std', 'bwd_packet_length_max',
+  'bwd_packet_length_min', 'bwd_packet_length_mean', 'bwd_packet_length_std',
+  'flow_bytes', 'flow_packets', 'flow_iat_mean', 'flow_iat_std', 'flow_iat_max',
+  'flow_iat_min', 'fwd_iat_total', 'fwd_iat_mean', 'fwd_iat_std', 'fwd_iat_max',
+  'fwd_iat_min', 'bwd_iat_total', 'bwd_iat_mean', 'bwd_iat_std', 'bwd_iat_max', 'bwd_iat_min',
+  'fwd_psh_flags', 'bwd_psh_flags', 'fwd_urg_flags', 'bwd_urg_flags',
+  'fwd_header_length', 'bwd_header_length', 'fwd_packets', 'bwd_packets', 'min_packet_length',
+  'max_packet_length', 'packet_length_mean', 'packet_length_std', 'packet_length_variance',
+  'fin_flag_count', 'syn_flag_count', 'rst_flag_count', 'psh_flag_count', 'ack_flag_count',
+  'urg_flag_count', 'cwe_flag_count', 'ece_flag_count', 'down_up_ratio', 'avg_packet_size',
+  'avg_fwd_segment_size', 'avg_bwd_segment_size', 'fwd_header_length', 'fwd_avg_bytes_bulk',
+  'fwd_avg_packets_bulk', 'fwd_avg_bulk_rate',  'bwd_avg_bytes_bulk', 'bwd_avg_packets_bulk',
+  'bwd_avg_bulk_rate', 'subflow_fwd_packets', 'subflow_fwd_bytes', 'subflow_bwd_packets',
+  'subflow_bwd_bytes', 'init_win_bytes_fwd', 'init_win_bytes_bwd', 'act_data_pkt_fwd',
+  'min_seg_size_forward', 'act_mean', 'act_std', 'act_max', 'act_min', 'idle_mean', 'idle_std',
+  'idle_max', 'idle_min', 'label']
 
   attacks = ['back', 'neptune', 'smurf', 'teardrop', 'land', 'pod', 'apache2', 'mailbomb', 'processtable', 'udpstorm',
              'satan', 'portsweep', 'ipsweep', 'nmap', 'mscan', 'saint', 'warezmaster', 'warezclient', 'ftp_write',
