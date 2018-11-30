@@ -49,11 +49,7 @@ def preprocess_five_class (input_path):
   'min_seg_size_forward', 'act_mean', 'act_std', 'act_max', 'act_min', 'idle_mean', 'idle_std',
   'idle_max', 'idle_min', 'label']
 
-  # ??? attacks
-  attacks = ['back', 'neptune', 'smurf', 'teardrop', 'land', 'pod', 'apache2', 'mailbomb', 'processtable', 'udpstorm',
-             'satan', 'portsweep', 'ipsweep', 'nmap', 'mscan', 'saint', 'warezmaster', 'warezclient', 'ftp_write',
-             'guess_passwd', 'imap', 'multihop', 'phf', 'spy', 'sendmail', 'named', 'snmpgetattack', 'snmpguess', 'xlock',
-             'xsnoop', 'worm', 'rootkit', 'buffer_overflow', 'loadmodule', 'perl', 'httptunnel', 'ps', 'sqlattack', 'xterm']
+  attacks = []
   
   dos_attacks = ['back', 'neptune', 'smurf', 'teardrop', 'land', 'pod', 'apache2', 'mailbomb', 'processtable', 'udpstorm']
   prob_attacks = ['satan', 'portsweep', 'ipsweep', 'nmap', 'mscan', 'saint']
@@ -93,32 +89,8 @@ def preprocess_five_class (input_path):
   
   return x, y
 
-train_file = "../../datasets/kddcup.data_10_percent_corrected"
-test_file = "../../datasets/corrected"
+train_file = "../datasets/kddcup.data_10_percent_corrected" # training_small
+test_file = "../datasets/corrected" # testing_small
 
-x_train, y_train = preprocess_five_class(train_file)
-x_test, y_test =  preprocess_five_class(test_file)
-
-clf = neighbors.KNeighborsClassifier()
-clf.fit(x_train, y_train)
-y_pred = clf.predict(x_test) # takes the features of a record and predicts the label of a record
-
-print("\nMetrics")
-print("---------")
-
-accuracy = clf.score(x_test, y_test) * 100
-print("Accuracy: " + str(accuracy))
-
-# https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html
-from sklearn.metrics import recall_score
-recall = recall_score(y_test, y_pred, average=None)
-#for i in recall:
-#  recall[i] * 100
-print("Recall: " + str(recall))
-
-# https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html
-from sklearn.metrics import precision_score
-precision = precision_score(y_test, y_pred, average=None)
-#for i in precision:
-#  precision[i] * 100
-print("Precision: " + str(precision))
+X_train, y_train = preprocess_five_class(train_file) # preprocess_categorical_five_class(train_file)
+X_test, y_test =  preprocess_five_class(test_file) # preprocess_categorical_five_class(test_file)
