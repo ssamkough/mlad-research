@@ -1,4 +1,4 @@
-# Machine Learning Classifier Practice
+# Machine Learning/Anomaly Detection Research
 I am partaking in research with my professor Dr. Boxiang Dong at Montclair State University in using deep learning techniques for anomaly detection. This project is to help with that research, specifically in implementing Machine Learning classifiers and more.
 
 ## Requirements
