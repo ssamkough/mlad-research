@@ -1,4 +1,11 @@
-# 85 features
+import numpy as np
+from sklearn import preprocessing, neighbors
+import pandas as pd
+import random
+import csv
+
+input_path = "../datasets/cicids17_dataset.csv"
+
 features = ['flow_id', 'source_ip', 'source_port', 'dest_ip', 'dest_port',
   'protocol', 'timestamp', 'flow_duration', 'total_fwd_packets', 'total_bwd_packets',
   'total_length_fwd_packets', 'total_length_bwd_packets', 'fwd_packet_length_max',
@@ -19,11 +26,9 @@ features = ['flow_id', 'source_ip', 'source_port', 'dest_ip', 'dest_port',
   'min_seg_size_forward', 'act_mean', 'act_std', 'act_max', 'act_min', 'idle_mean', 'idle_std',
   'idle_max', 'idle_min', 'label']
 
-i = 0
-
-for k in features:
-    i += 1
-
-    print(str(i) + ': ' + k)
-
-print(i)
+n = sum(1 for line in open(input_path))
+s = 100000
+skip = sorted(random.sample(range(1, n+1), n-s))
+df = pd.read_csv(input_path, header = None, names = features, skiprows = skip)
+print("Labels:\n", df.pop('label').unique())
+print("\n---------------------------\n")

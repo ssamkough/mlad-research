@@ -83,14 +83,14 @@ def preprocess_five_class (input_path):
   df[categorical_columns] = df[categorical_columns].astype('category').apply(lambda x: x.cat.codes)
   for i in categorical_columns:
       df[i] = df[i].astype('int64')
-
+  
   y = df.pop('label')
   x = df
   
   return x, y
 
-train_file = "../datasets/kddcup.data_10_percent_corrected" # training_small
-test_file = "../datasets/corrected" # testing_small
+train_file = "../../datasets/cicids17_dataset.csv"
+test_file = "../../datasets/cicids17_dataset.csv"
 
 X_train, y_train = preprocess_five_class(train_file) # preprocess_categorical_five_class(train_file)
 X_test, y_test =  preprocess_five_class(test_file) # preprocess_categorical_five_class(test_file)

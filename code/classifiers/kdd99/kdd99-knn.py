@@ -80,8 +80,8 @@ def preprocess_five_class (input_path):
   
   return x, y
 
-train_file = "../../datasets/kddcup.data_10_percent_corrected"
-test_file = "../../datasets/corrected"
+train_file = "../../../datasets/kddcup.data_10_percent_corrected"
+test_file = "../../../datasets/corrected"
 
 x_train, y_train = preprocess_five_class(train_file)
 x_test, y_test =  preprocess_five_class(test_file)
