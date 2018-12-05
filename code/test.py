@@ -30,5 +30,5 @@ n = sum(1 for line in open(input_path))
 s = 100000
 skip = sorted(random.sample(range(1, n+1), n-s))
 df = pd.read_csv(input_path, header = None, names = features, skiprows = skip)
-print("Labels:\n", df.pop('label').unique())
+print("Labels:\n", df.pop('label').unique()) # count labels
 print("\n---------------------------\n")
