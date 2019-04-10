@@ -42,6 +42,10 @@ I am partaking in research with my professor Dr. Boxiang Dong at Montclair State
 - [Switching Python Environments on VS Code](https://code.visualstudio.com/docs/python/environments)
 - [How to Delete Commit History in Github](https://tecadmin.net/delete-commit-history-in-github/)
 
+### Machine Learning
+
+- [Echo State Networks in Python](https://github.com/cknd/pyESN)
+
 ### Network
 
 - https://www.howtogeek.com/311287/how-to-connect-to-an-ssh-server-from-windows-macos-or-linux/
