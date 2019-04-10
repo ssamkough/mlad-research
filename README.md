@@ -40,6 +40,7 @@ I am partaking in research with my professor Dr. Boxiang Dong at Montclair State
 - [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 - [Online Markdown Editor](https://dillinger.io/)
 - [Switching Python Environments on VS Code](https://code.visualstudio.com/docs/python/environments)
+- [How to Delete Commit History in Github](https://tecadmin.net/delete-commit-history-in-github/)
 
 ### Network
 
