@@ -1,6 +1,6 @@
 # Deep Learning Research
 
-I am partaking in research with my professor Dr. Boxiang Dong at Montclair State University in using deep learning techniques for anomaly detection. This project is to help with that research,. What I have done so far is:
+I am partaking in research with my professor Dr. Boxiang Dong at Montclair State University in using deep learning techniques for anomaly detection. This project is to help with that research. What I have done so far is:
 
 - Implement neural nets w/ TensorFlow
 - Implement machine learning classifiers
